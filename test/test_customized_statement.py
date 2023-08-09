@@ -44,16 +44,17 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 global user_id, user_passwd,Account_No
 user_id = "mngr520629"
 user_passwd = "mEdUbEb"
-AccountNo = "120937"
+AccountNo = "125290"
 
 class Test_Section09():
 
-    def setup_method(self, method):
-        self.driver = webdriver.Chrome()
-        self.vars = {}
+    @classmethod
+    def setup_method(cls, method):
+        cls.driver = webdriver.Chrome()
+        cls.vars = {}
 
         # Pre-test config
-        driver = self.driver
+        driver = cls.driver
 
         # -3: Go to login webpage
         driver.get("https://demo.guru99.com/V4/")
@@ -72,8 +73,9 @@ class Test_Section09():
         print("Commence Test 09: Customized Statement")
 
 
-    def teardown_method(self, method):
-        self.driver.quit()
+    @classmethod
+    def teardown_method(cls, method):
+        cls.driver.quit()
 
 
 
