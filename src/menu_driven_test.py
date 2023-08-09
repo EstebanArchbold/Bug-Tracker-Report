@@ -1,3 +1,6 @@
+from test_new_customer import TestNewCustomerCreation
+
+
 def display_menu():
     print("===== Test Menu =====")
     print("1. Test New Customer")
@@ -19,7 +22,7 @@ def menu_driven_test():
 
         if choice == "1":
             print("Testing New Customer functionality...")
-            # test_new_customer_creation()
+            TestNewCustomerCreation()
         elif choice == "2":
             print("Testing Edit Customer functionality...")
             # test_edit_customer()
