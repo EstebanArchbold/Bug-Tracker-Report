@@ -21,13 +21,12 @@ class TestNewCustomerCreation(unittest.TestCase):
         driver.find_element(By.NAME, "uid").send_keys("mngr517726")
         driver.find_element(By.NAME, "password").send_keys("Yvuzygu")
         driver.find_element(By.NAME, "btnLogin").click()
-        
+
 
     def test_VerifyNameField_NC1(self):
         self.driver.find_element(By.LINK_TEXT, "New Customer").click()
         self.driver.find_element(By.NAME, "name").click()
         self.driver.find_element(By.NAME, "name").send_keys(Keys.TAB)
-        self.sleep_and_screenshot("test_eC1.png")
 
 
     def test_VerifyNameField_NC2(self):
