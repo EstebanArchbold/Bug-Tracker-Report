@@ -12,4 +12,4 @@ INFT 1207 – Group#6 Bug Tracker Report
 
 August 8:
 -- Finish compiling 'customized_statements' and 'mini_statement' and pushed to Gary's branch.
-move on to testing
+<br>move on to testing
