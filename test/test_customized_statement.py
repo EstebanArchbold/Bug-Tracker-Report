@@ -40,10 +40,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 
-
-
+# Global variables for different testing accounts:
+global user_id, user_passwd,Account_No
+user_id = "mngr520629"
+user_passwd = "mEdUbEb"
+AccountNo = "120937"
 
 class Test_Section09():
+
     def setup_method(self, method):
         self.driver = webdriver.Chrome()
         self.vars = {}
@@ -55,14 +59,14 @@ class Test_Section09():
         driver.get("https://demo.guru99.com/V4/")
 
         # -2: input User Credentials
-        driver.find_element(By.NAME, "uid").send_keys("mngr520629")
-        driver.find_element(By.NAME, "password").send_keys("mEdUbEb")
+        driver.find_element(By.NAME, "uid").send_keys(user_id)
+        driver.find_element(By.NAME, "password").send_keys(user_passwd)
 
         # -1: Login
         driver.find_element(By.NAME, "btnLogin").click()
 
         # Step 0: Verify Login
-        assert driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td").text == "Manger Id : mngr520629"
+        assert driver.find_element(By.XPATH, "/html/body/table/tbody/tr/td/table/tbody/tr[3]/td").text == "Manger Id : " + user_id
         print("\nLogin Confirmed: Mainpage")
         
         print("Commence Test 09: Customized Statement")
@@ -296,7 +300,8 @@ class Test_Section09():
         driver.find_element(By.LINK_TEXT, "Customised Statement").click()
         # Verify Buttons
         alert = Alert(driver)
-        AccountNo = "120937"
+        ## AccountNo = "120937"
+        # this variable has delcared ahead. If the program cannot find it uncomment the above line.
         FromDate = "01092023"
         ToDate = "04142023"
         AmountMin = "4070"
@@ -325,7 +330,8 @@ class Test_Section09():
 
         # Verify Buttons
         alert = Alert(driver)
-        AccountNo = "120937"
+        ## AccountNo = "120937"
+        # this variable has delcared ahead. If the program cannot find it uncomment the above line.
         FromDate = "01092023"
         ToDate = "04142023"
         AmountMin = "4070"
