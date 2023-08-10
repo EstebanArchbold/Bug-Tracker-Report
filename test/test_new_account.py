@@ -70,3 +70,95 @@ class TestNewAccount(unittest.TestCase):
         self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
         time.sleep(3)
         self.driver.refresh()
+
+    def test_VerifyInitialDeposit_NA6(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys(" 123456")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(3)
+        self.driver.refresh()
+
+    def test_VerifyInitialDeposit_NA7(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("1234Acc")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        self.driver.find_element(By.NAME, "cusid").clear()
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "cusid").send_keys("Acc123")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(2)
+        self.driver.refresh()
+
+    def test_VerifyInitialDeposit_NA8(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("123!@#")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "cusid").clear()
+        self.driver.find_element(By.NAME, "cusid").send_keys("!@#")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "cusid").clear()
+        self.driver.refresh()
+
+    def test_VerifyInitialDeposit_NA9(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("123 12")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(2)
+        self.driver.refresh()
+
+    def test_VerifyInitialDeposit_NA10(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys(" 12345")
+        self.driver.find_element(By.NAME, "cusid").send_keys(Keys.TAB)
+        time.sleep(2)
+        self.driver.refresh()
+    
+    def test_VerifyAccounttypeDropdown_NA11(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        dropdown = self.driver.find_element(By.NAME, "selaccount")
+        dropdown.find_element(By.XPATH, "//option[. = 'Savings']").click()
+        time.sleep(2)
+        self.driver.refresh()
+
+    def test_VerifyAccounttypeDropdown_NA12(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        dropdown = self.driver.find_element(By.NAME, "selaccount")
+        dropdown.find_element(By.XPATH, "//option[. = 'Current']").click()
+        time.sleep(2)
+        self.driver.refresh()
+    
+    def test_ResetButton_NA13(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("61897")
+        dropdown = self.driver.find_element(By.NAME, "selaccount")
+        dropdown.find_element(By.XPATH, "//option[. = 'Savings']").click()
+        self.driver.find_element(By.NAME, "inideposit").send_keys("61897")
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "reset").click()
+        self.driver.refresh()
+    
+    def test_SubmitButton_NA14(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("123456")
+        dropdown = self.driver.find_element(By.NAME, "selaccount")
+        dropdown.find_element(By.XPATH, "//option[. = 'Savings']").click()
+        self.driver.find_element(By.NAME, "inideposit").send_keys("10234")
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "button2").click()
+        self.accept_alert()
+        time.sleep(2)
+        self.driver.refresh()
+
+    def test_SubmitButton_NA15(self):
+        self.driver.find_element(By.LINK_TEXT, "New Account").click()
+        self.driver.find_element(By.NAME, "cusid").send_keys("61897")
+        dropdown = self.driver.find_element(By.NAME, "selaccount")
+        dropdown.find_element(By.XPATH, "//option[. = 'Savings']").click()
+        self.driver.find_element(By.NAME, "inideposit").send_keys("10234")
+        time.sleep(2)
+        self.driver.find_element(By.NAME, "button2").click()
+        time.sleep(5)
+        self.driver.find_element(By.LINK_TEXT, "Continue").click()

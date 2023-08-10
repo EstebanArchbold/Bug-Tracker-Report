@@ -1,10 +1,16 @@
 import sys
 import unittest
-sys.path.append(r'C:\Users\EMG\Documents\Bug-Tracker-Report\test')
+sys.path.append(r'..\Bug-Tracker-Report\test')
 from test_new_customer import TestNewCustomerCreation
 from test_edit_customer import TestEditCustomerCreation
 from test_delete_customer import TestDeleteCustomer
 from test_new_account import TestNewAccount
+from test_edit_account import TestEditAccount
+from test_delete_account import TesDeleteCustomer
+from test_balance_enquiry import TesBalanceEnquiry
+from test_ministatement import TestMiniStatement
+
+
 
 def main_menu():
     print("===== Test Menu =====")
@@ -12,7 +18,11 @@ def main_menu():
     print("2. Test Edit Customer")
     print("3. Test Delete Customer")
     print("4. Test New Account")
-    # Add more options for other test classes
+    print("5. Test Edit Account")
+    print("6. Test Delete Account")
+    print("7. Test Balance Enquiry")
+    print("8. Test Mini Statement")
+    print("9. Test Customised Statement")
     print("0. Exit")
     print("=====================")
 
@@ -29,7 +39,16 @@ if __name__ == "__main__":
             unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TestDeleteCustomer))
         elif choice == "4":
             unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TestNewAccount))
-        # Add more cases for other test classes
+        elif choice == "5":
+            unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TestEditAccount))
+        elif choice == "6":
+            unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TesDeleteCustomer))
+        elif choice == "7":
+            unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TesBalanceEnquiry))
+        elif choice == "8":
+            unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TestMiniStatement))
+        # elif choice == "9":
+        #     unittest.TextTestRunner().run(unittest.TestLoader().loadTestsFromTestCase(TestCustomisedStatement))
         elif choice == "0":
             break
         else:
